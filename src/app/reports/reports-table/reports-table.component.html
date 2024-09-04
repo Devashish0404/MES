@@ -1,0 +1,42 @@
+<div style="text-align: center;">
+  <h1>Get Your Data</h1>
+  <button (click)="getData()">
+    Get Data
+    <!-- @for(data of userData$ | async; track data.id){
+      <ul>
+        <li>{{data.id}}</li>
+        <li>{{data.userId}}</li>
+        <li>{{data.title}}</li>
+        <li>{{data.body}}</li>
+      </ul>
+    }@empty {
+      No Data Found
+    } -->
+  </button>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>User Id</th>
+      <th>Title</th>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for(data of userData$ | async; track data.id){
+      <tr>
+        <td>{{data.id}}</td>
+        <td>{{data.userId}}</td>
+        <td>{{data.title}}</td>
+        <td>{{data.body}}</td>
+      </tr>
+    }@empty {
+      <tr>
+        <td colspan="4">
+          No Data Found
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
